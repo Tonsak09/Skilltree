@@ -1,0 +1,439 @@
+[gd_scene format=3 uid="uid://dfhjnmlun3xjg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SectionSelection" type="Panel" parent="Panel"]
+offset_right = 98.0
+offset_bottom = 648.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel/SectionSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -106.0
+offset_right = 49.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/SectionSelection/FlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Panel/SectionSelection/FlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Panel/SectionSelection/FlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="Panel/SectionSelection/FlowContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel/SectionSelection"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 97.0
+offset_bottom = 648.0
+
+[node name="Control" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 111.0
+offset_top = 45.0
+offset_right = 1017.0
+offset_bottom = 625.0
+
+[node name="Tree" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.093
+anchor_right = 0.122
+anchor_bottom = 0.093
+offset_left = -113.532
+offset_top = -35.94
+offset_right = 139.468
+offset_bottom = 511.06
+
+[node name="Label" type="Label" parent="Panel/Control/Tree"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 45.0
+text = "Tree Section 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 60.0
+offset_right = 30.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "A"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 80.0
+offset_right = -30.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "a"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree/ButtonMajor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 80.0
+offset_right = 25.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "c
+"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree/ButtonMajor/ButtonMinor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 80.0
+offset_right = 25.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "d"
+
+[node name="ButtonMinor2" type="Button" parent="Panel/Control/Tree/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 30.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "b"
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree/ButtonMajor/ButtonMinor2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 120.0
+offset_right = 30.0
+offset_bottom = 180.0
+grow_horizontal = 2
+text = "B"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree/ButtonMajor/ButtonMinor2/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 120.0
+offset_right = 25.0
+offset_bottom = 170.0
+grow_horizontal = 2
+text = "d"
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree/ButtonMajor/ButtonMinor2/ButtonMajor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = 75.0
+offset_right = -25.0
+offset_bottom = 135.0
+grow_horizontal = 2
+text = "C"
+
+[node name="Tree2" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.093
+anchor_right = 0.122
+anchor_bottom = 0.093
+offset_left = 156.468
+offset_top = -35.94
+offset_right = 409.468
+offset_bottom = 511.06
+
+[node name="Label" type="Label" parent="Panel/Control/Tree2"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 45.0
+text = "Tree Section 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 60.0
+offset_right = 30.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "A"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 80.0
+offset_right = -30.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "a"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 80.0
+offset_right = 25.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "c
+"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 80.0
+offset_right = 25.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "d"
+
+[node name="ButtonMinor2" type="Button" parent="Panel/Control/Tree2/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 30.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "b"
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 120.0
+offset_right = 30.0
+offset_bottom = 180.0
+grow_horizontal = 2
+text = "B"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor2/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 120.0
+offset_right = 25.0
+offset_bottom = 170.0
+grow_horizontal = 2
+text = "d"
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor2/ButtonMajor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = 75.0
+offset_right = -25.0
+offset_bottom = 135.0
+grow_horizontal = 2
+text = "C"
+
+[node name="Tree3" type="Panel" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.093
+anchor_right = 0.122
+anchor_bottom = 0.093
+offset_left = 426.468
+offset_top = -35.94
+offset_right = 679.468
+offset_bottom = 511.06
+
+[node name="Label" type="Label" parent="Panel/Control/Tree3"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 45.0
+text = "Tree Section 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 60.0
+offset_right = 30.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "A"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 80.0
+offset_right = -30.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "a"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 80.0
+offset_right = 25.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "c
+"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 80.0
+offset_right = 25.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "d"
+
+[node name="ButtonMinor2" type="Button" parent="Panel/Control/Tree3/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 30.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "b"
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 120.0
+offset_right = 30.0
+offset_bottom = 180.0
+grow_horizontal = 2
+text = "B"
+
+[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor2/ButtonMajor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 120.0
+offset_right = 25.0
+offset_bottom = 170.0
+grow_horizontal = 2
+text = "d"
+
+[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor2/ButtonMajor/ButtonMinor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = 75.0
+offset_right = -25.0
+offset_bottom = 135.0
+grow_horizontal = 2
+text = "C"
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 98.0
+offset_right = 915.0
+offset_bottom = 45.0
+
+[node name="SelectionDesc" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 915.0
+offset_right = 1151.0
+offset_bottom = 610.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 33.0
+offset_right = 229.0
+offset_bottom = 179.0
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 70.0
