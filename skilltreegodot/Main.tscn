@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://dfhjnmlun3xjg"]
+[gd_scene load_steps=5 format=3 uid="uid://dfhjnmlun3xjg"]
+
+[ext_resource type="VideoStream" path="res://God-of-War-4-Best-runic-combo.ogv" id="1_65a60"]
+[ext_resource type="Script" path="res://Tree.gd" id="1_vuaan"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fpr1"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukxg3"]
+font_size = 12
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,6 +23,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="SectionSelection" type="Panel" parent="Panel"]
+layout_mode = 0
 offset_right = 98.0
 offset_bottom = 648.0
 
@@ -48,17 +58,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="Panel/SectionSelection"]
-layout_mode = 0
-offset_left = 93.0
-offset_right = 97.0
-offset_bottom = 648.0
-
 [node name="Control" type="Control" parent="Panel"]
 anchors_preset = 0
-offset_left = 111.0
+offset_left = 98.0
 offset_top = 45.0
-offset_right = 1017.0
+offset_right = 1004.0
 offset_bottom = 625.0
 
 [node name="Tree" type="Panel" parent="Panel/Control"]
@@ -68,10 +72,11 @@ anchor_left = 0.122
 anchor_top = 0.093
 anchor_right = 0.122
 anchor_bottom = 0.093
-offset_left = -113.532
-offset_top = -35.94
-offset_right = 139.468
-offset_bottom = 511.06
+offset_left = -110.532
+offset_top = -28.94
+offset_right = 142.468
+offset_bottom = 518.06
+script = ExtResource("1_vuaan")
 
 [node name="Label" type="Label" parent="Panel/Control/Tree"]
 layout_mode = 0
@@ -185,10 +190,10 @@ anchor_left = 0.122
 anchor_top = 0.093
 anchor_right = 0.122
 anchor_bottom = 0.093
-offset_left = 156.468
-offset_top = -35.94
-offset_right = 409.468
-offset_bottom = 511.06
+offset_left = 142.468
+offset_top = -28.94
+offset_right = 395.468
+offset_bottom = 518.06
 
 [node name="Label" type="Label" parent="Panel/Control/Tree2"]
 layout_mode = 0
@@ -303,10 +308,10 @@ anchor_left = 0.122
 anchor_top = 0.093
 anchor_right = 0.122
 anchor_bottom = 0.093
-offset_left = 426.468
-offset_top = -35.94
-offset_right = 679.468
-offset_bottom = 511.06
+offset_left = 395.468
+offset_top = -28.94
+offset_right = 648.468
+offset_bottom = 518.06
 
 [node name="Label" type="Label" parent="Panel/Control/Tree3"]
 layout_mode = 0
@@ -416,14 +421,15 @@ text = "C"
 [node name="Panel" type="Panel" parent="Panel"]
 layout_mode = 0
 offset_left = 98.0
-offset_right = 915.0
-offset_bottom = 45.0
+offset_right = 857.0
+offset_bottom = 33.0
 
 [node name="SelectionDesc" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 915.0
+offset_left = 857.0
+offset_top = -1.0
 offset_right = 1151.0
-offset_bottom = 610.0
+offset_bottom = 617.0
 
 [node name="TextureRect" type="TextureRect" parent="Panel/SelectionDesc"]
 layout_mode = 0
@@ -431,6 +437,74 @@ offset_left = 16.0
 offset_top = 33.0
 offset_right = 229.0
 offset_bottom = 179.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 294.0
+offset_bottom = 240.0
+stream = ExtResource("1_65a60")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 294.0
+offset_bottom = 71.0
+text = "ABILITY NAME"
+label_settings = SubResource("LabelSettings_2fpr1")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_top = 240.0
+offset_right = 294.0
+offset_bottom = 244.0
+
+[node name="HFlowContainer" type="MarginContainer" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_top = 244.0
+offset_right = 294.0
+offset_bottom = 284.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label3" type="Label" parent="Panel/SelectionDesc/HFlowContainer"]
+layout_mode = 2
+text = "SKILL LABOR"
+uppercase = true
+
+[node name="Label4" type="Label" parent="Panel/SelectionDesc/HFlowContainer"]
+layout_mode = 2
+text = "USED: 1/15"
+horizontal_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/SelectionDesc"]
+offset_top = 284.0
+offset_right = 294.0
+offset_bottom = 288.0
+
+[node name="Label2" type="Label" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 294.0
+offset_bottom = 311.0
+text = "Use in combat to increase tier."
+label_settings = SubResource("LabelSettings_ukxg3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/SelectionDesc"]
+layout_mode = 0
+offset_top = 323.0
+offset_right = 295.0
+offset_bottom = 618.0
+text = "Switch stances by pausing momentarilly after any Leviathan Axe attack. Once in new stance, press R1, R1, R1 to perform a sweeping combo. "
+autowrap_mode = 2
 
 [node name="MenuBar" type="MenuBar" parent="."]
 layout_mode = 0
