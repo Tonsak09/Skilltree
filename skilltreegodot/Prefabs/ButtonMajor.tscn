@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://r0eqfs7o2ulq"]
+
+[node name="ButtonMajor" type="Button"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 60.0
+offset_right = 30.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "A"
+metadata/Unlocked = false
+metadata/AbilityName = ""
+metadata/LaborCount = 0
+metadata/Description = ""

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d14oc4jx7tdet"]
+
+[node name="ButtonMinor" type="Button"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 65.0
+offset_right = 25.0
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "a"
+metadata/Unlocked = false
+metadata/AbilityName = ""
+metadata/LaborCount = 0
+metadata/Description = ""
