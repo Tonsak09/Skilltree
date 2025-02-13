@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfhjnmlun3xjg"]
+[gd_scene load_steps=10 format=3 uid="uid://dfhjnmlun3xjg"]
 
+[ext_resource type="Script" path="res://Scripts/SectionSelection.gd" id="1_2tsf3"]
 [ext_resource type="Script" path="res://Scripts/Tree.gd" id="1_nfx3c"]
 [ext_resource type="VideoStream" path="res://God-of-War-4-Best-runic-combo.ogv" id="2_bjcnt"]
+[ext_resource type="Script" path="res://Scripts/TreeSetBtn.gd" id="2_dvxsb"]
+[ext_resource type="Script" path="res://Scripts/TreeSet.gd" id="2_eyfyb"]
 [ext_resource type="PackedScene" uid="uid://r0eqfs7o2ulq" path="res://Prefabs/ButtonMajor.tscn" id="3_qju0k"]
 [ext_resource type="PackedScene" uid="uid://d14oc4jx7tdet" path="res://Prefabs/ButtonMinor.tscn" id="4_5uqit"]
 
@@ -19,55 +22,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="SkilltreeTool" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="SectionSelection" type="Panel" parent="Panel"]
+[node name="SectionSelection" type="Panel" parent="SkilltreeTool" node_paths=PackedStringArray("treeSets", "treeSetBtns")]
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 648.0
+script = ExtResource("1_2tsf3")
+treeSets = [NodePath("../TreeSet"), NodePath("../TreeSet2")]
+treeSetBtns = [NodePath("CenterContainer/FlowContainer/TreeSetBtn"), NodePath("CenterContainer/FlowContainer/TreeSetBtn2")]
+
+[node name="CenterContainer" type="CenterContainer" parent="SkilltreeTool/SectionSelection"]
 layout_mode = 0
 offset_right = 98.0
 offset_bottom = 648.0
 
-[node name="FlowContainer" type="FlowContainer" parent="Panel/SectionSelection"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -106.0
-offset_right = 49.0
-offset_bottom = 106.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="FlowContainer" type="FlowContainer" parent="SkilltreeTool/SectionSelection/CenterContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Panel/SectionSelection/FlowContainer"]
+[node name="TreeSetBtn" type="Button" parent="SkilltreeTool/SectionSelection/CenterContainer/FlowContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+script = ExtResource("2_dvxsb")
 
-[node name="Button2" type="Button" parent="Panel/SectionSelection/FlowContainer"]
+[node name="TreeSetBtn2" type="Button" parent="SkilltreeTool/SectionSelection/CenterContainer/FlowContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+script = ExtResource("2_dvxsb")
 
-[node name="Button3" type="Button" parent="Panel/SectionSelection/FlowContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Button4" type="Button" parent="Panel/SectionSelection/FlowContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-
-[node name="Control" type="Control" parent="Panel"]
+[node name="TreeSet" type="Control" parent="SkilltreeTool" node_paths=PackedStringArray("trees")]
 anchors_preset = 0
 offset_left = 98.0
 offset_top = 45.0
 offset_right = 1004.0
 offset_bottom = 625.0
+script = ExtResource("2_eyfyb")
+trees = [NodePath("Tree"), NodePath("Tree2"), NodePath("Tree3")]
 
-[node name="Tree" type="Panel" parent="Panel/Control" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+[node name="Tree" type="Panel" parent="SkilltreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.122
@@ -83,7 +79,7 @@ abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
 laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 descriptionLabel = NodePath("../../SelectionDesc/Description")
 
-[node name="Label" type="Label" parent="Panel/Control/Tree"]
+[node name="Label" type="Label" parent="SkilltreeTool/TreeSet/Tree"]
 layout_mode = 0
 offset_right = 253.0
 offset_bottom = 45.0
@@ -91,53 +87,53 @@ text = "Tree Section 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonMajor2" parent="Panel/Control/Tree" instance=ExtResource("3_qju0k")]
+[node name="ButtonMajor2" parent="SkilltreeTool/TreeSet/Tree" instance=ExtResource("3_qju0k")]
 layout_mode = 1
 offset_left = -27.5
 offset_right = 32.5
 
-[node name="ButtonMinor" parent="Panel/Control/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_left = -79.5
 offset_top = 80.0
 offset_right = -29.5
 offset_bottom = 130.0
 
-[node name="ButtonMinor" parent="Panel/Control/Tree/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
 
-[node name="ButtonMinor" parent="Panel/Control/Tree/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
 
-[node name="ButtonMinor2" parent="Panel/Control/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
+[node name="ButtonMinor2" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_left = 30.5
 offset_top = 80.0
 offset_right = 80.5
 offset_bottom = 130.0
 
-[node name="ButtonMajor" parent="Panel/Control/Tree/ButtonMajor2/ButtonMinor2" instance=ExtResource("3_qju0k")]
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor2" instance=ExtResource("3_qju0k")]
 layout_mode = 1
 offset_top = 120.0
 offset_bottom = 180.0
 
-[node name="ButtonMinor" parent="Panel/Control/Tree/ButtonMajor2/ButtonMinor2/ButtonMajor" instance=ExtResource("4_5uqit")]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor2/ButtonMajor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 120.0
 offset_bottom = 170.0
 
-[node name="ButtonMajor" parent="Panel/Control/Tree/ButtonMajor2/ButtonMinor2/ButtonMajor/ButtonMinor" instance=ExtResource("3_qju0k")]
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor2/ButtonMajor/ButtonMinor" instance=ExtResource("3_qju0k")]
 layout_mode = 1
 offset_left = -85.0
 offset_top = 75.0
 offset_right = -25.0
 offset_bottom = 135.0
 
-[node name="Tree2" type="Panel" parent="Panel/Control"]
+[node name="Tree2" type="Panel" parent="SkilltreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.122
@@ -148,114 +144,66 @@ offset_left = 142.468
 offset_top = -28.94
 offset_right = 395.468
 offset_bottom = 518.06
+script = ExtResource("1_nfx3c")
+abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+descriptionLabel = NodePath("../../SelectionDesc/Description")
 
-[node name="Label" type="Label" parent="Panel/Control/Tree2"]
+[node name="Label" type="Label" parent="SkilltreeTool/TreeSet/Tree2"]
 layout_mode = 0
 offset_right = 253.0
 offset_bottom = 45.0
-text = "Tree Section 2
-"
+text = "Tree Section 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree2"]
+[node name="ButtonMajor2" parent="SkilltreeTool/TreeSet/Tree2" instance=ExtResource("3_qju0k")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -30.0
-offset_top = 60.0
-offset_right = 30.0
-offset_bottom = 120.0
-grow_horizontal = 2
-text = "A"
+offset_left = -27.5
+offset_right = 32.5
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -80.0
+offset_left = -79.5
 offset_top = 80.0
-offset_right = -30.0
+offset_right = -29.5
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "a"
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
 offset_top = 80.0
-offset_right = 25.0
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "c
-"
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor/ButtonMinor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
 offset_top = 80.0
-offset_right = 25.0
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "d"
 
-[node name="ButtonMinor2" type="Button" parent="Panel/Control/Tree2/ButtonMajor"]
+[node name="ButtonMinor2" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 30.0
+offset_left = 30.5
 offset_top = 80.0
-offset_right = 80.0
+offset_right = 80.5
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "b"
 
-[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor2"]
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor2" instance=ExtResource("3_qju0k")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -30.0
 offset_top = 120.0
-offset_right = 30.0
 offset_bottom = 180.0
-grow_horizontal = 2
-text = "B"
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor2/ButtonMajor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor2/ButtonMajor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
 offset_top = 120.0
-offset_right = 25.0
 offset_bottom = 170.0
-grow_horizontal = 2
-text = "d"
 
-[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree2/ButtonMajor/ButtonMinor2/ButtonMajor/ButtonMinor"]
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor2/ButtonMajor/ButtonMinor" instance=ExtResource("3_qju0k")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
 offset_left = -85.0
 offset_top = 75.0
 offset_right = -25.0
 offset_bottom = 135.0
-grow_horizontal = 2
-text = "C"
 
-[node name="Tree3" type="Panel" parent="Panel/Control"]
+[node name="Tree3" type="Panel" parent="SkilltreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.122
@@ -266,126 +214,230 @@ offset_left = 395.468
 offset_top = -28.94
 offset_right = 648.468
 offset_bottom = 518.06
+script = ExtResource("1_nfx3c")
+abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+descriptionLabel = NodePath("../../SelectionDesc/Description")
 
-[node name="Label" type="Label" parent="Panel/Control/Tree3"]
+[node name="Label" type="Label" parent="SkilltreeTool/TreeSet/Tree3"]
 layout_mode = 0
 offset_right = 253.0
 offset_bottom = 45.0
-text = "Tree Section 3"
+text = "Tree Section 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree3"]
+[node name="ButtonMajor2" parent="SkilltreeTool/TreeSet/Tree3" instance=ExtResource("3_qju0k")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -30.0
-offset_top = 60.0
-offset_right = 30.0
-offset_bottom = 120.0
-grow_horizontal = 2
-text = "A"
+offset_left = -27.5
+offset_right = 32.5
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -80.0
+offset_left = -79.5
 offset_top = 80.0
-offset_right = -30.0
+offset_right = -29.5
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "a"
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
 offset_top = 80.0
-offset_right = 25.0
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "c
-"
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor/ButtonMinor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
 offset_top = 80.0
-offset_right = 25.0
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "d"
 
-[node name="ButtonMinor2" type="Button" parent="Panel/Control/Tree3/ButtonMajor"]
+[node name="ButtonMinor2" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 30.0
+offset_left = 30.5
 offset_top = 80.0
-offset_right = 80.0
+offset_right = 80.5
 offset_bottom = 130.0
-grow_horizontal = 2
-text = "b"
 
-[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor2"]
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor2" instance=ExtResource("3_qju0k")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -30.0
 offset_top = 120.0
-offset_right = 30.0
 offset_bottom = 180.0
-grow_horizontal = 2
-text = "B"
 
-[node name="ButtonMinor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor2/ButtonMajor"]
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor2/ButtonMajor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
 offset_top = 120.0
-offset_right = 25.0
 offset_bottom = 170.0
-grow_horizontal = 2
-text = "d"
 
-[node name="ButtonMajor" type="Button" parent="Panel/Control/Tree3/ButtonMajor/ButtonMinor2/ButtonMajor/ButtonMinor"]
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor2/ButtonMajor/ButtonMinor" instance=ExtResource("3_qju0k")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
 offset_left = -85.0
 offset_top = 75.0
 offset_right = -25.0
 offset_bottom = 135.0
-grow_horizontal = 2
-text = "C"
 
-[node name="Panel" type="Panel" parent="Panel"]
+[node name="TreeSet2" type="Control" parent="SkilltreeTool" node_paths=PackedStringArray("trees")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 98.0
+offset_top = 45.0
+offset_right = 1004.0
+offset_bottom = 625.0
+script = ExtResource("2_eyfyb")
+trees = [NodePath("Tree"), NodePath(""), NodePath("Tree3")]
+
+[node name="Tree" type="Panel" parent="SkilltreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.093
+anchor_right = 0.122
+anchor_bottom = 0.093
+offset_left = -110.532
+offset_top = -28.94
+offset_right = 142.468
+offset_bottom = 518.06
+script = ExtResource("1_nfx3c")
+abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+descriptionLabel = NodePath("../../SelectionDesc/Description")
+
+[node name="Label" type="Label" parent="SkilltreeTool/TreeSet2/Tree"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 45.0
+text = "Tree Section 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMajor2" parent="SkilltreeTool/TreeSet2/Tree" instance=ExtResource("3_qju0k")]
+layout_mode = 1
+offset_left = -27.5
+offset_right = 32.5
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_left = -79.5
+offset_top = 80.0
+offset_right = -29.5
+offset_bottom = 130.0
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_top = 80.0
+offset_bottom = 130.0
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_top = 80.0
+offset_bottom = 130.0
+
+[node name="ButtonMinor2" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_left = 30.5
+offset_top = 80.0
+offset_right = 80.5
+offset_bottom = 130.0
+
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2/ButtonMinor2" instance=ExtResource("3_qju0k")]
+layout_mode = 1
+offset_top = 120.0
+offset_bottom = 180.0
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2/ButtonMinor2/ButtonMajor" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_top = 120.0
+offset_bottom = 170.0
+
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet2/Tree/ButtonMajor2/ButtonMinor2/ButtonMajor/ButtonMinor" instance=ExtResource("3_qju0k")]
+layout_mode = 1
+offset_left = -85.0
+offset_top = 75.0
+offset_right = -25.0
+offset_bottom = 135.0
+
+[node name="Tree3" type="Panel" parent="SkilltreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.122
+anchor_top = 0.093
+anchor_right = 0.122
+anchor_bottom = 0.093
+offset_left = 395.468
+offset_top = -28.94
+offset_right = 648.468
+offset_bottom = 518.06
+script = ExtResource("1_nfx3c")
+abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+descriptionLabel = NodePath("../../SelectionDesc/Description")
+
+[node name="Label" type="Label" parent="SkilltreeTool/TreeSet2/Tree3"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 45.0
+text = "Tree Section 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMajor2" parent="SkilltreeTool/TreeSet2/Tree3" instance=ExtResource("3_qju0k")]
+layout_mode = 1
+offset_left = -27.5
+offset_right = 32.5
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_left = -79.5
+offset_top = 80.0
+offset_right = -29.5
+offset_bottom = 130.0
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_top = 80.0
+offset_bottom = 130.0
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_top = 80.0
+offset_bottom = 130.0
+
+[node name="ButtonMinor2" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_left = 30.5
+offset_top = 80.0
+offset_right = 80.5
+offset_bottom = 130.0
+
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2/ButtonMinor2" instance=ExtResource("3_qju0k")]
+layout_mode = 1
+offset_top = 120.0
+offset_bottom = 180.0
+
+[node name="ButtonMinor" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2/ButtonMinor2/ButtonMajor" instance=ExtResource("4_5uqit")]
+layout_mode = 1
+offset_top = 120.0
+offset_bottom = 170.0
+
+[node name="ButtonMajor" parent="SkilltreeTool/TreeSet2/Tree3/ButtonMajor2/ButtonMinor2/ButtonMajor/ButtonMinor" instance=ExtResource("3_qju0k")]
+layout_mode = 1
+offset_left = -85.0
+offset_top = 75.0
+offset_right = -25.0
+offset_bottom = 135.0
+
+[node name="Panel" type="Panel" parent="SkilltreeTool"]
 layout_mode = 0
 offset_left = 98.0
 offset_right = 857.0
 offset_bottom = 33.0
 
-[node name="SelectionDesc" type="Panel" parent="Panel"]
+[node name="SelectionDesc" type="Panel" parent="SkilltreeTool"]
 layout_mode = 0
 offset_left = 857.0
 offset_top = -1.0
 offset_right = 1151.0
 offset_bottom = 617.0
 
-[node name="VdieoSample" type="VideoStreamPlayer" parent="Panel/SelectionDesc"]
+[node name="VdieoSample" type="VideoStreamPlayer" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 71.0
 offset_right = 294.0
@@ -395,7 +447,7 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="AbilityName" type="Label" parent="Panel/SelectionDesc"]
+[node name="AbilityName" type="Label" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 294.0
@@ -406,13 +458,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="HSeparator" type="HSeparator" parent="Panel/SelectionDesc"]
+[node name="HSeparator" type="HSeparator" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 240.0
 offset_right = 294.0
 offset_bottom = 244.0
 
-[node name="SkillLaborContainer" type="MarginContainer" parent="Panel/SelectionDesc"]
+[node name="SkillLaborContainer" type="MarginContainer" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 244.0
 offset_right = 294.0
@@ -420,23 +472,23 @@ offset_bottom = 284.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="SkillLabor" type="Label" parent="Panel/SelectionDesc/SkillLaborContainer"]
+[node name="SkillLabor" type="Label" parent="SkilltreeTool/SelectionDesc/SkillLaborContainer"]
 layout_mode = 2
 text = "SKILL LABOR"
 uppercase = true
 
-[node name="SkillLaborCount" type="Label" parent="Panel/SelectionDesc/SkillLaborContainer"]
+[node name="SkillLaborCount" type="Label" parent="SkilltreeTool/SelectionDesc/SkillLaborContainer"]
 layout_mode = 2
 text = "USED: 1/15"
 horizontal_alignment = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Panel/SelectionDesc"]
+[node name="HSeparator2" type="HSeparator" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 284.0
 offset_right = 294.0
 offset_bottom = 288.0
 
-[node name="LaborTip" type="Label" parent="Panel/SelectionDesc"]
+[node name="LaborTip" type="Label" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 288.0
 offset_right = 294.0
@@ -446,7 +498,7 @@ label_settings = SubResource("LabelSettings_ukxg3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Panel/SelectionDesc"]
+[node name="Description" type="Label" parent="SkilltreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 323.0
 offset_right = 295.0
@@ -459,3 +511,6 @@ layout_mode = 0
 offset_top = 30.0
 offset_right = 40.0
 offset_bottom = 70.0
+
+[connection signal="pressed" from="SkilltreeTool/SectionSelection/CenterContainer/FlowContainer/TreeSetBtn" to="SkilltreeTool/SectionSelection/CenterContainer/FlowContainer/TreeSetBtn" method="OnPress"]
+[connection signal="pressed" from="SkilltreeTool/SectionSelection/CenterContainer/FlowContainer/TreeSetBtn2" to="SkilltreeTool/SectionSelection/CenterContainer/FlowContainer/TreeSetBtn2" method="OnPress"]
