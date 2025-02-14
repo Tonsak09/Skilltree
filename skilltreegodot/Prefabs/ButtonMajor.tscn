@@ -1,16 +1,25 @@
-[gd_scene format=3 uid="uid://r0eqfs7o2ulq"]
+[gd_scene load_steps=2 format=3 uid="uid://r0eqfs7o2ulq"]
+
+[ext_resource type="Script" path="res://Scripts/UpgradeNode.gd" id="1_vu6k8"]
 
 [node name="ButtonMajor" type="Button"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -30.0
-offset_top = 60.0
+offset_top = 59.0
 offset_right = 30.0
-offset_bottom = 120.0
+offset_bottom = 119.0
 grow_horizontal = 2
 text = "A"
+script = ExtResource("1_vu6k8")
+timeToUnlock = 1.0
 metadata/Unlocked = false
 metadata/AbilityName = ""
 metadata/LaborCount = 0
 metadata/Description = ""
+metadata/LaborMax = 0
+
+[connection signal="button_down" from="." to="." method="UpgradeHold"]
+[connection signal="button_up" from="." to="." method="UpgradeUp"]
+[connection signal="pressed" from="." to="." method="UpgradeClick"]

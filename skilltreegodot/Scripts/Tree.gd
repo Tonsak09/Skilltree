@@ -10,6 +10,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
+# Set buttons active based on parent unlocked 
 func BuildTree(curr, depth):
 	
 	# Iterate through each child that is
@@ -33,15 +34,19 @@ func BuildTree(curr, depth):
 			else:
 				child.disabled  = true;  
 			
-			
+			child.Init(self)
 			var tabs = "";
 			for t in depth:
 				tabs += "   "
 			
-			print_debug(tabs + curr.name)
 			BuildTree(child, depth + 1)
-	
 
-# Called by buttons when held down 
-func UpdateChildrenEvent():
+# Updates upgrade info based on metadata 
+func DisplayDesc(upgradeBtn : Button):
+	abilityNameLabel.text = upgradeBtn.get_meta("AbilityName")
+	laborCountLabel.text = "USED: " + str(upgradeBtn.get_meta("LaborCount")) + "/" + str(upgradeBtn.get_meta("LaborMax"))
+	descriptionLabel.text = upgradeBtn.get_meta("Description")
+
+# Updates unlock metadata 
+func UnlockUpgrade(upgradeBtn : Button):
 	pass 

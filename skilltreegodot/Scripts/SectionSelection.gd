@@ -9,7 +9,7 @@ var currSetID : int
 func _ready() -> void:
 	InitializeTrees()
 
-
+# Initialize tree sets with their respective button 
 func InitializeTrees():
 	
 	# Connect btn with treeSet 
@@ -34,7 +34,7 @@ func InitializeTrees():
 	treeSets[0].visible = true 
 	currSetID = 0
 
-
+# Turns on a tree set and turns off current treeset 
 func ActivateTreeSet(index : int):
 	# Check if btn is on list 
 	if index < 0:

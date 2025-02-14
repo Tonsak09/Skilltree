@@ -91,6 +91,9 @@ vertical_alignment = 1
 layout_mode = 1
 offset_left = -27.5
 offset_right = 32.5
+metadata/Unlocked = true
+metadata/AbilityName = "NAME"
+metadata/Description = "This is a sample"
 
 [node name="ButtonMinor" parent="SkilltreeTool/TreeSet/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
@@ -282,7 +285,7 @@ offset_top = 45.0
 offset_right = 1004.0
 offset_bottom = 625.0
 script = ExtResource("2_eyfyb")
-trees = [NodePath("Tree"), NodePath(""), NodePath("Tree3")]
+trees = [NodePath("Tree"), null, NodePath("Tree3")]
 
 [node name="Tree" type="Panel" parent="SkilltreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
 layout_mode = 1
