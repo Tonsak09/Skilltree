@@ -1,5 +1,9 @@
+# The purpose of this script is to manage the visuals of this node 
+
 extends Button
 
+@export var nodeBG : ColorRect
+@export var nodeIcon : TextureRect
 @export var timeToUnlock : float 
 
 # Used to update information facing user 
@@ -13,10 +17,9 @@ func _init() -> void:
 
 func _process(delta: float) -> void:
 	
+	# Confirm this is not yet unlocked 
 	if get_meta("Unlocked") == false && held == true:
 		heldTime = clampf((heldTime + delta if held else -delta), 0.0, timeToUnlock) 
-		
-		print_debug(heldTime)
 		
 		# Able to unlock yet? 
 		if(heldTime >= timeToUnlock):
@@ -24,17 +27,25 @@ func _process(delta: float) -> void:
 			# Update metadata 
 			set_meta("Unlocked", true)
 			
-			# Turn children clickable  
+			# Turn children clickable 
 			for child in get_children():
 				if child is Button: 
-					child.disabled = false 
-			
-	else:
-		pass
+					child.SetActive()
+
+# Turns this node ON 
+func SetActive():
+	disabled = false 
+	nodeIcon.material.set_shader_parameter("Alpha", 1.0)
 
 # Called to initilize by tree 
 func Init(tm : Control):
 	treeManager = tm
+	
+	if disabled:
+		nodeIcon.material.set_shader_parameter("Alpha", 0.5)
+	else:
+		nodeIcon.material.set_shader_parameter("Alpha", 1.0)
+	
 
 # Single click on node to view information 
 func UpgradeClick():

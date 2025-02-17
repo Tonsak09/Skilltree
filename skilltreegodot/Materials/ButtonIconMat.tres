@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://txwxoanmugyi"]
+
+[ext_resource type="Shader" uid="uid://p6h4f26xmac3" path="res://Shaders/NodePrimary.tres" id="1_ac1mn"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_ac1mn")
+shader_parameter/Alpha = 1.0

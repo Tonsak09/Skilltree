@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://r0eqfs7o2ulq"]
+[gd_scene load_steps=5 format=3 uid="uid://r0eqfs7o2ulq"]
 
 [ext_resource type="Script" path="res://Scripts/UpgradeNode.gd" id="1_vu6k8"]
+[ext_resource type="Material" uid="uid://dosqr3qpb01kj" path="res://Materials/ButtonBGMat.tres" id="2_ediub"]
+[ext_resource type="Texture2D" uid="uid://c75cqhiuv45pb" path="res://Textures/Circle.png" id="2_xscs0"]
+[ext_resource type="Material" uid="uid://txwxoanmugyi" path="res://Materials/ButtonIconMat.tres" id="3_fddi3"]
 
-[node name="ButtonMajor" type="Button"]
+[node name="ButtonMajor" type="Button" node_paths=PackedStringArray("nodeBG", "nodeIcon")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -11,14 +14,34 @@ offset_top = 59.0
 offset_right = 30.0
 offset_bottom = 119.0
 grow_horizontal = 2
-text = "A"
+flat = true
 script = ExtResource("1_vu6k8")
+nodeBG = NodePath("NodeBG")
+nodeIcon = NodePath("NodeIcon")
 timeToUnlock = 1.0
 metadata/Unlocked = false
 metadata/AbilityName = ""
 metadata/LaborCount = 0
 metadata/Description = ""
 metadata/LaborMax = 0
+
+[node name="NodeBG" type="ColorRect" parent="."]
+z_index = -1
+material = ExtResource("2_ediub")
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 65.0
+offset_bottom = 65.0
+color = Color(0, 0, 0, 1)
+
+[node name="NodeIcon" type="TextureRect" parent="."]
+material = ExtResource("3_fddi3")
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+texture = ExtResource("2_xscs0")
+expand_mode = 1
 
 [connection signal="button_down" from="." to="." method="UpgradeHold"]
 [connection signal="button_up" from="." to="." method="UpgradeUp"]

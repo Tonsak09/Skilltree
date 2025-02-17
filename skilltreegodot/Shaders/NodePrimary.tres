@@ -1,0 +1,62 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://p6h4f26xmac3"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_idepr"]
+parameter_name = "Alpha"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bqtxj"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_jgwii"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_2aojn"]
+operator = 2
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float Alpha = 1;
+
+
+
+void fragment() {
+// Input:3
+	vec4 n_out3p0 = COLOR;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out3p0.x;
+	float n_out4p1 = n_out3p0.y;
+	float n_out4p2 = n_out3p0.z;
+	float n_out4p3 = n_out3p0.w;
+
+
+// FloatParameter:2
+	float n_out2p0 = Alpha;
+
+
+// FloatOp:5
+	float n_out5p0 = n_out4p3 * n_out2p0;
+
+
+// Output:0
+	COLOR.a = n_out5p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatParameter_idepr")
+nodes/fragment/2/position = Vector2(-120, 420)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_bqtxj")
+nodes/fragment/3/position = Vector2(-380, 180)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_jgwii")
+nodes/fragment/4/position = Vector2(-40, 180)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_2aojn")
+nodes/fragment/5/position = Vector2(160, 280)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 3, 5, 0, 2, 0, 5, 1, 5, 0, 0, 1)

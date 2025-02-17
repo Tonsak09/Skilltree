@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://drnew4jax86gr"
+valid=false
+
+[deps]
+
+source_file="res://SkillTreeData/Sample.csv"
+
+[params]
+
+compress=true
+delimiter=0

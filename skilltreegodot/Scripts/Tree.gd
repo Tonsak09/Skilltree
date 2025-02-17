@@ -34,7 +34,9 @@ func BuildTree(curr, depth):
 			else:
 				child.disabled  = true;  
 			
+			# TODO: Pass in meta data here 
 			child.Init(self)
+			
 			var tabs = "";
 			for t in depth:
 				tabs += "   "
