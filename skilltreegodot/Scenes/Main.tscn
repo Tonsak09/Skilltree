@@ -29,7 +29,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_shncl")
 trees = [NodePath("TreeSet/Tree"), NodePath("TreeSet/Tree2"), NodePath("TreeSet/Tree3")]
-LoadSpreadsheetData = null
+ids = Array[int]([479470369188362, 157376799269583, 43948101103605, 151242002239428, 150131077768530, 872191550292674, 712188586525605, 351343827948767, 838973287406234, 78073254505397, 646534228228172, 404382497913926, 121175675463844, 72160168911813, 121408797130023, 677220816235042, 655632001749669, 224601877125056, 348703626874875, 340247533150959, 387457173436281, 271950918657854, 28783846494441, 757484350329000, 904532125269180, 364621926580433, 862965765652196, 530124873807326, 423710050378056, 734984262883440, 428620565745617, 304360145858713, 657493249319227, 790899099807217, 432871714771393, 318800327956501, 451879636982544, 2437961123425, 84967587932879, 38322572183282, 727737672489948, 520296463427907, 844274772365813, 73771373829953, 753777557844853, 904004720514187, 888898057753489, 748804525081363, 672779661452940, 670616743276809, 88588253034286, 594887749828392, 550074500813558, 561286951584182, 373334194359425, 345672240751174, 887113802605652, 26001331972669, 334635252910350, 719055330195933, 681338163547193, 67337508400884, 398327514724648, 764960899155817, 325649027850014, 766496846390398, 126457861363289, 602360957014745, 735859957220930, 80571195002721, 156662773989719, 868845793624715, 784618295258610, 774330553963330, 502513174812772, 177156378325720, 650029065326318, 882290794048221, 305342060112486, 738663047723221, 577979485624481, 165403153879509, 510641472304116, 611251651335951])
 
 [node name="SectionSelection" type="Panel" parent="SkillTreeTool" node_paths=PackedStringArray("treeSets", "treeSetBtns")]
 layout_mode = 0
@@ -95,6 +95,7 @@ vertical_alignment = 1
 layout_mode = 1
 offset_left = -27.5
 offset_right = 32.5
+metadata/id = 650029065326318
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree2/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
@@ -102,16 +103,19 @@ offset_left = -79.5
 offset_top = 80.0
 offset_right = -29.5
 offset_bottom = 130.0
+metadata/id = 882290794048221
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
+metadata/id = 305342060112486
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree2/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
+metadata/id = 738663047723221
 
 [node name="ButtonMinor2" parent="SkillTreeTool/TreeSet/Tree2/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
@@ -168,6 +172,7 @@ offset_right = 32.5
 metadata/Unlocked = true
 metadata/AbilityName = "NAME"
 metadata/Description = "This is a sample"
+metadata/id = 784618295258610
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
@@ -175,16 +180,19 @@ offset_left = -79.5
 offset_top = 80.0
 offset_right = -29.5
 offset_bottom = 130.0
+metadata/id = 774330553963330
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
+metadata/id = 502513174812772
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
+metadata/id = 177156378325720
 
 [node name="ButtonMinor2" parent="SkillTreeTool/TreeSet/Tree/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
@@ -238,6 +246,7 @@ vertical_alignment = 1
 layout_mode = 1
 offset_left = -27.5
 offset_right = 32.5
+metadata/id = 577979485624481
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree3/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1
@@ -245,16 +254,19 @@ offset_left = -79.5
 offset_top = 80.0
 offset_right = -29.5
 offset_bottom = 130.0
+metadata/id = 165403153879509
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
+metadata/id = 510641472304116
 
 [node name="ButtonMinor" parent="SkillTreeTool/TreeSet/Tree3/ButtonMajor2/ButtonMinor/ButtonMinor" instance=ExtResource("4_5uqit")]
 layout_mode = 1
 offset_top = 80.0
 offset_bottom = 130.0
+metadata/id = 611251651335951
 
 [node name="ButtonMinor2" parent="SkillTreeTool/TreeSet/Tree3/ButtonMajor2" instance=ExtResource("4_5uqit")]
 layout_mode = 1

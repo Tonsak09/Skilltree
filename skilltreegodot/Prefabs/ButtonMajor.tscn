@@ -20,9 +20,9 @@ nodeBG = NodePath("NodeBG")
 nodeIcon = NodePath("NodeIcon")
 timeToUnlock = 1.0
 metadata/Unlocked = false
-metadata/AbilityName = ""
+metadata/AbilityName = "Ability Name"
 metadata/LaborCount = 0
-metadata/Description = ""
+metadata/Description = "Ability Description"
 metadata/LaborMax = 0
 
 [node name="NodeBG" type="ColorRect" parent="."]

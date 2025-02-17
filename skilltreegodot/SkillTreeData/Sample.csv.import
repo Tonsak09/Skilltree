@@ -2,12 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://drnew4jax86gr"
-valid=false
+uid="uid://cqs7avu7a5nnk"
 
 [deps]
 
+files=["res://SkillTreeData/Sample.true.translation", "res://SkillTreeData/Sample.NAME.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.This is a sample.translation"]
+
 source_file="res://SkillTreeData/Sample.csv"
+dest_files=["res://SkillTreeData/Sample.true.translation", "res://SkillTreeData/Sample.NAME.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.This is a sample.translation"]
 
 [params]
 
