@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://cqs7avu7a5nnk"
-valid=false
 
 [deps]
 
+files=["res://SkillTreeData/Sample.id.translation", "res://SkillTreeData/Sample.669076442537941.translation", "res://SkillTreeData/Sample.BOOL.translation", "res://SkillTreeData/Sample.Unlocked.translation", "res://SkillTreeData/Sample.false.translation", "res://SkillTreeData/Sample.STRING.translation", "res://SkillTreeData/Sample.AbilityName.translation", "res://SkillTreeData/Sample.NAME.translation", "res://SkillTreeData/Sample.INT.translation", "res://SkillTreeData/Sample.LaborCount.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.INT.translation", "res://SkillTreeData/Sample.LaborMax.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.STRING.translation", "res://SkillTreeData/Sample.Description.translation", "res://SkillTreeData/Sample.Ability Description.translation", "res://SkillTreeData/Sample.FLOAT.translation", "res://SkillTreeData/Sample.Cost.translation", "res://SkillTreeData/Sample.100.translation"]
+
 source_file="res://SkillTreeData/Sample.csv"
+dest_files=["res://SkillTreeData/Sample.id.translation", "res://SkillTreeData/Sample.669076442537941.translation", "res://SkillTreeData/Sample.BOOL.translation", "res://SkillTreeData/Sample.Unlocked.translation", "res://SkillTreeData/Sample.false.translation", "res://SkillTreeData/Sample.STRING.translation", "res://SkillTreeData/Sample.AbilityName.translation", "res://SkillTreeData/Sample.NAME.translation", "res://SkillTreeData/Sample.INT.translation", "res://SkillTreeData/Sample.LaborCount.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.INT.translation", "res://SkillTreeData/Sample.LaborMax.translation", "res://SkillTreeData/Sample.0.translation", "res://SkillTreeData/Sample.STRING.translation", "res://SkillTreeData/Sample.Description.translation", "res://SkillTreeData/Sample.Ability Description.translation", "res://SkillTreeData/Sample.FLOAT.translation", "res://SkillTreeData/Sample.Cost.translation", "res://SkillTreeData/Sample.100.translation"]
 
 [params]
 

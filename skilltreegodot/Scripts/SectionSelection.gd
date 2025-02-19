@@ -48,3 +48,6 @@ func ActivateTreeSet(index : int):
 	treeSets[currSetID].visible = false 
 	treeSets[index].visible = true 
 	currSetID = index 
+
+func GetCurretTreeSet():
+	return treeSets[currSetID]

@@ -4,6 +4,7 @@ extends Button
 
 @export_category("Visual Settings")
 @export var iconTexture : Texture
+@export var videoDemo : VideoStreamTheora
 @export var timeToUnlock : float 
 @export var upgradeCurve : Curve
 
@@ -23,8 +24,6 @@ func _init() -> void:
 		pass
 
 func _process(delta: float) -> void:
-	
-	 
 	
 	# Ensure it is affordable 
 	if get_meta("Cost", 0.0) > PlayerResources.xp:
@@ -77,11 +76,18 @@ func Init(tm : Control):
 # Single click on node to view information 
 func UpgradeClick():
 	treeManager.DisplayDesc(self)
+	treeManager.UpdateCurrentBtn(self)
 
 # Holds to begin unlocking node 
 func UpgradeHold():
 	held = true 
+	treeManager.DisplayDesc(self)
+	treeManager.UpdateCurrentBtn(self)
 
 # No longer holding upgrade down 
 func UpgradeUp():
 	held = false 
+
+func GetInterpToUpgrade():
+	return heldTime / timeToUnlock
+	

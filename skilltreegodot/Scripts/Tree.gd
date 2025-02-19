@@ -1,8 +1,13 @@
 extends Control
 
 @export var abilityNameLabel : Label
-@export var laborCountLabel : Label
 @export var descriptionLabel : Label
+
+@export var laborContainer : Control 
+@export var laborCountLabel : Label
+
+@export var xpContainer : Control
+@export var xpLabel : Label 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,5 +50,19 @@ func BuildTree(curr, depth):
 # Updates upgrade info based on metadata 
 func DisplayDesc(upgradeBtn : Button):
 	abilityNameLabel.text = upgradeBtn.get_meta("AbilityName")
-	laborCountLabel.text = "USED: " + str(upgradeBtn.get_meta("LaborCount")) + "/" + str(upgradeBtn.get_meta("LaborMax"))
+	
+	if upgradeBtn.get_meta("Unlocked"):
+		xpContainer.visible = false
+		laborContainer.visible = true 
+		laborCountLabel.text = "USED: " + str(upgradeBtn.get_meta("LaborCount")) + "/" + str(upgradeBtn.get_meta("LaborMax"))
+	else:
+		laborContainer.visible = false 
+		xpContainer.visible = true 
+		xpLabel.text = str(upgradeBtn.get_meta("Cost")) + "/" + str(PlayerResources.xp)
+		
+	
 	descriptionLabel.text = upgradeBtn.get_meta("Description")
+
+# Updates the treeset what the current btn is 
+func UpdateCurrentBtn(btn : Button):
+	get_parent().currBtn = btn

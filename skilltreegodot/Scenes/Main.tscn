@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfhjnmlun3xjg"]
+[gd_scene load_steps=18 format=3 uid="uid://dfhjnmlun3xjg"]
 
 [ext_resource type="Script" path="res://Scripts/SectionSelection.gd" id="1_2tsf3"]
 [ext_resource type="Script" path="res://Scripts/Tree.gd" id="1_nfx3c"]
@@ -9,9 +9,26 @@
 [ext_resource type="PackedScene" uid="uid://d14oc4jx7tdet" path="res://Prefabs/ButtonMinor.tscn" id="4_5uqit"]
 [ext_resource type="VideoStream" path="res://Video/God-of-War-4-Best-runic-combo.ogv" id="8_coys4"]
 [ext_resource type="Script" path="res://Scenes/LazyXPUpdate.gd" id="9_2iglw"]
+[ext_resource type="LabelSettings" uid="uid://cnmiyxccmgdbr" path="res://LabelSettings/SubtitleUpgrade.tres" id="9_fm7is"]
+[ext_resource type="Script" path="res://Scenes/XPDisplay.gd" id="9_hhb5t"]
+[ext_resource type="Shader" uid="uid://b00we7xkgsg5e" path="res://Shaders/LoadBar.tres" id="11_a7y22"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fpr1"]
 font_size = 32
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r0qe5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fs3q4"]
+width = 2152
+height = 167
+noise = SubResource("FastNoiseLite_r0qe5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25m7u"]
+shader = ExtResource("11_a7y22")
+shader_parameter/ColorStart = Color(0.366595, 0.366595, 0.366595, 1)
+shader_parameter/ColorEnd = Color(1, 1, 1, 1)
+shader_parameter/UpgradeT = 0.0
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_fs3q4")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ukxg3"]
 font_size = 12
@@ -72,7 +89,7 @@ offset_bottom = 625.0
 script = ExtResource("2_eyfyb")
 trees = [NodePath("Tree2"), NodePath("Tree"), NodePath("Tree3")]
 
-[node name="Tree2" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+[node name="Tree2" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -84,8 +101,11 @@ offset_right = 395.468
 offset_bottom = 518.06
 script = ExtResource("1_nfx3c")
 abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
-laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 descriptionLabel = NodePath("../../SelectionDesc/Description")
+laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+xpContainer = NodePath("../../SelectionDesc/XPDisplay")
+xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet/Tree2"]
 layout_mode = 0
@@ -165,7 +185,7 @@ metadata/AbilityName = "NAME"
 metadata/id = 730975830194863
 metadata/Cost = 107.0
 
-[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -177,8 +197,11 @@ offset_right = 142.468
 offset_bottom = 518.06
 script = ExtResource("1_nfx3c")
 abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
-laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 descriptionLabel = NodePath("../../SelectionDesc/Description")
+laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+xpContainer = NodePath("../../SelectionDesc/XPDisplay")
+xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet/Tree"]
 layout_mode = 0
@@ -259,7 +282,7 @@ metadata/AbilityName = "NAME"
 metadata/id = 355937968904912
 metadata/Cost = 115.0
 
-[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -271,8 +294,11 @@ offset_right = 648.468
 offset_bottom = 518.06
 script = ExtResource("1_nfx3c")
 abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
-laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 descriptionLabel = NodePath("../../SelectionDesc/Description")
+laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+xpContainer = NodePath("../../SelectionDesc/XPDisplay")
+xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet/Tree3"]
 layout_mode = 0
@@ -362,7 +388,7 @@ offset_bottom = 625.0
 script = ExtResource("2_eyfyb")
 trees = [NodePath("Tree"), NodePath("Tree3")]
 
-[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -374,8 +400,11 @@ offset_right = 142.468
 offset_bottom = 518.06
 script = ExtResource("1_nfx3c")
 abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
-laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 descriptionLabel = NodePath("../../SelectionDesc/Description")
+laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+xpContainer = NodePath("../../SelectionDesc/XPDisplay")
+xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet2/Tree"]
 layout_mode = 0
@@ -456,7 +485,7 @@ metadata/AbilityName = "NAME"
 metadata/id = 551525047379785
 metadata/Cost = 131.0
 
-[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "laborCountLabel", "descriptionLabel")]
+[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -468,8 +497,11 @@ offset_right = 648.468
 offset_bottom = 518.06
 script = ExtResource("1_nfx3c")
 abilityNameLabel = NodePath("../../SelectionDesc/AbilityName")
-laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 descriptionLabel = NodePath("../../SelectionDesc/Description")
+laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
+laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
+xpContainer = NodePath("../../SelectionDesc/XPDisplay")
+xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet2/Tree3"]
 layout_mode = 0
@@ -590,6 +622,7 @@ offset_right = 294.0
 offset_bottom = 244.0
 
 [node name="SkillLaborContainer" type="MarginContainer" parent="SkillTreeTool/SelectionDesc"]
+visible = false
 layout_mode = 0
 offset_top = 244.0
 offset_right = 294.0
@@ -600,11 +633,40 @@ theme_override_constants/margin_right = 5
 [node name="SkillLabor" type="Label" parent="SkillTreeTool/SelectionDesc/SkillLaborContainer"]
 layout_mode = 2
 text = "SKILL LABOR"
+label_settings = ExtResource("9_fm7is")
 uppercase = true
 
 [node name="SkillLaborCount" type="Label" parent="SkillTreeTool/SelectionDesc/SkillLaborContainer"]
 layout_mode = 2
 text = "USED: 1/15"
+label_settings = ExtResource("9_fm7is")
+horizontal_alignment = 2
+
+[node name="XPDisplay" type="MarginContainer" parent="SkillTreeTool/SelectionDesc" node_paths=PackedStringArray("sectionSelection", "upgradeBar")]
+offset_top = 244.0
+offset_right = 294.0
+offset_bottom = 284.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+script = ExtResource("9_hhb5t")
+sectionSelection = NodePath("../../SectionSelection")
+upgradeBar = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="SkillTreeTool/SelectionDesc/XPDisplay"]
+material = SubResource("ShaderMaterial_25m7u")
+layout_mode = 2
+color = Color(0.92854, 1, 0.999032, 1)
+
+[node name="Purchase" type="Label" parent="SkillTreeTool/SelectionDesc/XPDisplay"]
+layout_mode = 2
+text = "PURCHASE"
+label_settings = ExtResource("9_fm7is")
+uppercase = true
+
+[node name="XP Cost" type="Label" parent="SkillTreeTool/SelectionDesc/XPDisplay"]
+layout_mode = 2
+text = "CurrentXP / Cost"
+label_settings = ExtResource("9_fm7is")
 horizontal_alignment = 2
 
 [node name="HSeparator2" type="HSeparator" parent="SkillTreeTool/SelectionDesc"]
