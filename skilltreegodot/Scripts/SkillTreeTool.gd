@@ -2,10 +2,10 @@
 # Ideally is serves no purpose during a release build 
 
 # TODO
-# [x] Read in extra written data
-# [x] Modify base loaded data to matrch with { type, name, style } format 
-# [x] Manage videos  
 # [ ] Manage audio 
+# [ ] Create flag array 
+# [ ] Make easier to update labors 
+# [ ] Arbitrary file name variables 
 
 @tool
 extends Control
@@ -181,8 +181,7 @@ func LoadIntoMeta(target, dataLine):
 
 #endregion
 
-
-#region TypeParsing
+#region ChunkManagement 
 
 func GenerateDataChunk(type : int, name : String, data):
 	var chunk : String
