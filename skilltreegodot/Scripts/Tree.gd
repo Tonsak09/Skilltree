@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 @export var abilityNameLabel : Label
 @export var laborCountLabel : Label
@@ -18,7 +18,6 @@ func BuildTree(curr, depth):
 	# signal that unlocks the button of the 
 	# next button 
 	
-	var children = curr.get_children()
 	var count = curr.get_child_count()
 	
 	for i in count:
@@ -48,7 +47,3 @@ func DisplayDesc(upgradeBtn : Button):
 	abilityNameLabel.text = upgradeBtn.get_meta("AbilityName")
 	laborCountLabel.text = "USED: " + str(upgradeBtn.get_meta("LaborCount")) + "/" + str(upgradeBtn.get_meta("LaborMax"))
 	descriptionLabel.text = upgradeBtn.get_meta("Description")
-
-# Updates unlock metadata 
-func UnlockUpgrade(upgradeBtn : Button):
-	pass 

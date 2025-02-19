@@ -5,4 +5,5 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_kv7xs")
-shader_parameter/Tint = null
+shader_parameter/Tint = Color(0.342352, 0.995356, 0.999998, 1)
+shader_parameter/Height = 1.0

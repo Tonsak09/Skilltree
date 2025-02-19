@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://r0eqfs7o2ulq"]
+[gd_scene load_steps=7 format=3 uid="uid://r0eqfs7o2ulq"]
 
 [ext_resource type="Script" path="res://Scripts/UpgradeNode.gd" id="1_vu6k8"]
 [ext_resource type="Material" uid="uid://dosqr3qpb01kj" path="res://Materials/ButtonBGMat.tres" id="2_ediub"]
+[ext_resource type="Curve" uid="uid://covbdvfu8et5m" path="res://Curves/ButtonCurve.tres" id="2_uxxc7"]
 [ext_resource type="Texture2D" uid="uid://c75cqhiuv45pb" path="res://Textures/Circle.png" id="2_xscs0"]
 [ext_resource type="Material" uid="uid://txwxoanmugyi" path="res://Materials/ButtonIconMat.tres" id="3_fddi3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spvo6"]
 
 [node name="ButtonMajor" type="Button" node_paths=PackedStringArray("nodeBG", "nodeIcon")]
 anchors_preset = 5
@@ -14,11 +17,13 @@ offset_top = 59.0
 offset_right = 30.0
 offset_bottom = 119.0
 grow_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_spvo6")
 flat = true
 script = ExtResource("1_vu6k8")
+timeToUnlock = 2.0
+upgradeCurve = ExtResource("2_uxxc7")
 nodeBG = NodePath("NodeBG")
 nodeIcon = NodePath("NodeIcon")
-timeToUnlock = 1.0
 metadata/Unlocked = false
 metadata/AbilityName = "Ability Name"
 metadata/LaborCount = 0
@@ -29,10 +34,10 @@ metadata/LaborMax = 0
 z_index = -1
 material = ExtResource("2_ediub")
 layout_mode = 0
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 65.0
-offset_bottom = 65.0
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 72.0
+offset_bottom = 72.0
 color = Color(0, 0, 0, 1)
 
 [node name="NodeIcon" type="TextureRect" parent="."]

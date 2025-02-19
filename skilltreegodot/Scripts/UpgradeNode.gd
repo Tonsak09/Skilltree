@@ -2,9 +2,14 @@
 
 extends Button
 
+@export_category("Visual Settings")
+@export var iconTexture : Texture
+@export var timeToUnlock : float 
+@export var upgradeCurve : Curve
+
+@export_category("Reference Nodes")
 @export var nodeBG : ColorRect
 @export var nodeIcon : TextureRect
-@export var timeToUnlock : float 
 
 # Used to update information facing user 
 var treeManager : Control 
@@ -14,23 +19,45 @@ var heldTime : float
 
 func _init() -> void:
 	held = false 
+	if iconTexture == null:
+		pass
 
 func _process(delta: float) -> void:
 	
+	 
+	
+	# Ensure it is affordable 
+	if get_meta("Cost", 0.0) > PlayerResources.xp:
+		if get_meta("Unlocked"):
+			nodeBG.material.set_shader_parameter("Height", 1.0)
+		else:
+			nodeBG.material.set_shader_parameter("Height", 0.0)
+		
+		return 
+	
+	if !get_meta("Unlocked"):
+		heldTime = clampf((heldTime + delta if held else heldTime - delta), 0.0, timeToUnlock) 
+		
+		var t = heldTime / timeToUnlock
+		nodeBG.material.set_shader_parameter("Height", upgradeCurve.sample(t))
+	
 	# Confirm this is not yet unlocked 
 	if get_meta("Unlocked") == false && held == true:
-		heldTime = clampf((heldTime + delta if held else -delta), 0.0, timeToUnlock) 
-		
 		# Able to unlock yet? 
 		if(heldTime >= timeToUnlock):
 			
 			# Update metadata 
 			set_meta("Unlocked", true)
 			
+			# Reduce xp 
+			PlayerResources.xp -= get_meta("Cost", 0.0)
+			
 			# Turn children clickable 
 			for child in get_children():
 				if child is Button: 
 					child.SetActive()
+	
+	
 
 # Turns this node ON 
 func SetActive():
@@ -53,9 +80,6 @@ func UpgradeClick():
 
 # Holds to begin unlocking node 
 func UpgradeHold():
-	# TODO: Unlock over delta time 
-	treeManager.UnlockUpgrade(self) 
-	
 	held = true 
 
 # No longer holding upgrade down 
