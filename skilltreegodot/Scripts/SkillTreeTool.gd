@@ -4,7 +4,7 @@
 # TODO
 # [x] Read in extra written data
 # [x] Modify base loaded data to matrch with { type, name, style } format 
-# [ ] Manage videos  
+# [x] Manage videos  
 # [ ] Manage audio 
 
 @tool

@@ -9,6 +9,9 @@ extends Control
 @export var xpContainer : Control
 @export var xpLabel : Label 
 
+@export var videoStreamer : VideoStreamPlayer
+@export var defaultStream : VideoStreamTheora
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BuildTree(self, 0)
@@ -62,6 +65,20 @@ func DisplayDesc(upgradeBtn : Button):
 		
 	
 	descriptionLabel.text = upgradeBtn.get_meta("Description")
+	# Update video media 
+	if upgradeBtn.videoDemo != null:
+		if videoStreamer.stream == upgradeBtn.videoDemo:
+			return
+		
+		videoStreamer.stream = upgradeBtn.videoDemo
+		videoStreamer.play()
+	else:
+		if videoStreamer.stream == defaultStream:
+			return
+		
+		# Use default video 
+		videoStreamer.stream = defaultStream 
+		videoStreamer.play()
 
 # Updates the treeset what the current btn is 
 func UpdateCurrentBtn(btn : Button):

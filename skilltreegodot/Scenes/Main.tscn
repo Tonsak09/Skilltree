@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfhjnmlun3xjg"]
+[gd_scene load_steps=19 format=3 uid="uid://dfhjnmlun3xjg"]
 
 [ext_resource type="Script" path="res://Scripts/SectionSelection.gd" id="1_2tsf3"]
 [ext_resource type="Script" path="res://Scripts/Tree.gd" id="1_nfx3c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/TreeSet.gd" id="2_eyfyb"]
 [ext_resource type="PackedScene" uid="uid://r0eqfs7o2ulq" path="res://Prefabs/ButtonMajor.tscn" id="3_qju0k"]
 [ext_resource type="PackedScene" uid="uid://d14oc4jx7tdet" path="res://Prefabs/ButtonMinor.tscn" id="4_5uqit"]
+[ext_resource type="VideoStream" path="res://Video/GOWCombo.ogv" id="8_c5m8w"]
 [ext_resource type="VideoStream" path="res://Video/God-of-War-4-Best-runic-combo.ogv" id="8_coys4"]
 [ext_resource type="Script" path="res://Scenes/LazyXPUpdate.gd" id="9_2iglw"]
 [ext_resource type="LabelSettings" uid="uid://cnmiyxccmgdbr" path="res://LabelSettings/SubtitleUpgrade.tres" id="9_fm7is"]
@@ -89,7 +90,7 @@ offset_bottom = 625.0
 script = ExtResource("2_eyfyb")
 trees = [NodePath("Tree2"), NodePath("Tree"), NodePath("Tree3")]
 
-[node name="Tree2" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
+[node name="Tree2" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel", "videoStreamer")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -106,6 +107,8 @@ laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
 laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 xpContainer = NodePath("../../SelectionDesc/XPDisplay")
 xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
+videoStreamer = NodePath("../../SelectionDesc/VideoSample")
+defaultStream = ExtResource("8_coys4")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet/Tree2"]
 layout_mode = 0
@@ -119,6 +122,7 @@ vertical_alignment = 1
 layout_mode = 1
 offset_left = -27.5
 offset_right = 32.5
+videoDemo = ExtResource("8_c5m8w")
 metadata/AbilityName = "NAME"
 metadata/id = 669076442537941
 metadata/Cost = 100.0
@@ -185,7 +189,7 @@ metadata/AbilityName = "NAME"
 metadata/id = 730975830194863
 metadata/Cost = 107.0
 
-[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
+[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel", "videoStreamer")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -202,6 +206,8 @@ laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
 laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 xpContainer = NodePath("../../SelectionDesc/XPDisplay")
 xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
+videoStreamer = NodePath("../../SelectionDesc/VideoSample")
+defaultStream = ExtResource("8_coys4")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet/Tree"]
 layout_mode = 0
@@ -282,7 +288,7 @@ metadata/AbilityName = "NAME"
 metadata/id = 355937968904912
 metadata/Cost = 115.0
 
-[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
+[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel", "videoStreamer")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -299,6 +305,8 @@ laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
 laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 xpContainer = NodePath("../../SelectionDesc/XPDisplay")
 xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
+videoStreamer = NodePath("../../SelectionDesc/VideoSample")
+defaultStream = ExtResource("8_coys4")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet/Tree3"]
 layout_mode = 0
@@ -388,7 +396,7 @@ offset_bottom = 625.0
 script = ExtResource("2_eyfyb")
 trees = [NodePath("Tree"), NodePath("Tree3")]
 
-[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
+[node name="Tree" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel", "videoStreamer")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -405,6 +413,8 @@ laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
 laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 xpContainer = NodePath("../../SelectionDesc/XPDisplay")
 xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
+videoStreamer = NodePath("../../SelectionDesc/VideoSample")
+defaultStream = ExtResource("8_coys4")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet2/Tree"]
 layout_mode = 0
@@ -485,7 +495,7 @@ metadata/AbilityName = "NAME"
 metadata/id = 551525047379785
 metadata/Cost = 131.0
 
-[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel")]
+[node name="Tree3" type="Control" parent="SkillTreeTool/TreeSet2" node_paths=PackedStringArray("abilityNameLabel", "descriptionLabel", "laborContainer", "laborCountLabel", "xpContainer", "xpLabel", "videoStreamer")]
 layout_mode = 1
 anchor_left = 0.122
 anchor_top = 0.093
@@ -502,6 +512,7 @@ laborContainer = NodePath("../../SelectionDesc/SkillLaborContainer")
 laborCountLabel = NodePath("../../SelectionDesc/SkillLaborContainer/SkillLaborCount")
 xpContainer = NodePath("../../SelectionDesc/XPDisplay")
 xpLabel = NodePath("../../SelectionDesc/XPDisplay/XP Cost")
+videoStreamer = NodePath("../../SelectionDesc/VideoSample")
 
 [node name="Label" type="Label" parent="SkillTreeTool/TreeSet2/Tree3"]
 layout_mode = 0
@@ -594,7 +605,7 @@ offset_top = -1.0
 offset_right = 1151.0
 offset_bottom = 617.0
 
-[node name="VdieoSample" type="VideoStreamPlayer" parent="SkillTreeTool/SelectionDesc"]
+[node name="VideoSample" type="VideoStreamPlayer" parent="SkillTreeTool/SelectionDesc"]
 layout_mode = 0
 offset_top = 71.0
 offset_right = 294.0

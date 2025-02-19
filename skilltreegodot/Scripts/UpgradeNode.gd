@@ -20,8 +20,8 @@ var heldTime : float
 
 func _init() -> void:
 	held = false 
-	if iconTexture == null:
-		pass
+	if iconTexture != null:
+		nodeIcon.texture = iconTexture
 
 func _process(delta: float) -> void:
 	
