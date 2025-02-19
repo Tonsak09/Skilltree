@@ -229,7 +229,7 @@ func ConvertRaw(typeRaw : String, dataRaw : String):
 	var type
 	var data 
 	
-	match typeRaw:
+	match typeRaw.strip_edges(true, true):
 		"BOOL":
 			type = ValidNodeTypes.BOOL
 			data = dataRaw == "true"
