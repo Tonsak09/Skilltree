@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://d14oc4jx7tdet" path="res://Prefabs/ButtonMinor.tscn" id="4_5uqit"]
 [ext_resource type="VideoStream" path="res://Video/GOWCombo.ogv" id="8_c5m8w"]
 [ext_resource type="VideoStream" path="res://Video/God-of-War-4-Best-runic-combo.ogv" id="8_coys4"]
-[ext_resource type="Script" path="res://Scenes/LazyXPUpdate.gd" id="9_2iglw"]
+[ext_resource type="Script" path="res://Scripts/LazyXPUpdate.gd" id="9_2iglw"]
 [ext_resource type="LabelSettings" uid="uid://cnmiyxccmgdbr" path="res://LabelSettings/SubtitleUpgrade.tres" id="9_fm7is"]
-[ext_resource type="Script" path="res://Scenes/XPDisplay.gd" id="9_hhb5t"]
+[ext_resource type="Script" path="res://Scripts/XPDisplay.gd" id="9_hhb5t"]
 [ext_resource type="Shader" uid="uid://b00we7xkgsg5e" path="res://Shaders/LoadBar.tres" id="11_a7y22"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fpr1"]

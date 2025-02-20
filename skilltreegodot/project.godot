@@ -26,4 +26,4 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SkilltreePlugin/plugin.cfg")
+enabled=PackedStringArray()
