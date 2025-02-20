@@ -11,6 +11,7 @@
 extends Control
 
 @export var trees : Array[Control]
+@export var csvPath = "res://SkillTreeData/Sample.csv"
 
 @export_category("Debug")
 @export var GenerateToolset: bool:
@@ -251,14 +252,14 @@ func ConvertRaw(typeRaw : String, dataRaw : String):
 
 # Writes a string to the desired file 
 func WriteFile(content):
-	var file = FileAccess.open("res://SkillTreeData/Sample.csv", FileAccess.WRITE)
+	var file = FileAccess.open(csvPath, FileAccess.WRITE)
 	file.store_string(content)
 
 # Get the data stored  
 func ReadFile():
 	
 	var data : Array
-	var file = FileAccess.open("res://SkillTreeData/Sample.csv", FileAccess.READ)
+	var file = FileAccess.open(csvPath, FileAccess.READ)
 	
 	print_debug("Loading data...")
 	while !file.eof_reached():
