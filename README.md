@@ -9,6 +9,8 @@ In the main scene of this project you will find the case study version of this p
 
 You can then press the "Generate Tool" button in the debug category in this tool. This will initilialize out file and setup the base metadata the node's will need. Make sure the any node you want affected by this are children of the trees. 
 
+Only additional setup asides from import is creating a global called PlayerResources and a var in it called xp. 
+
 ## Features
 Spreadhseet Manipulation: Any edits that are done to the CSV can be loaded into the metadata of buttons. 
 Hierachy based dependency: Nodes require parent to be unlocked before they can 
