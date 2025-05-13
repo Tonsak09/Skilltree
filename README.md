@@ -1,5 +1,4 @@
 # Skilltree
-Developed by Narai Risser for IGME 590 in GODOT
 
 ## Purpose 
 This is a tool to help manage skilltree data outside of GODOT. By creating and communicating with a CSV file users are able to view their skilltree data in a designer first environment.
